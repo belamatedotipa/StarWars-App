@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K6W-gm-UUd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Starjedi.ttf">
+            <string>StarJedi</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="v7s-qQ-w3b">
+            <objects>
+                <navigationController id="K6W-gm-UUd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="7IV-I5-QJr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6Bk-yZ-3Vi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qcr-OG-i66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1292" y="89"/>
+        </scene>
+        <!--Star Wars-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="star" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="udh-Qq-zDa">
+                                <rect key="frame" x="0.0" y="106" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-yG-G6Z">
+                                <rect key="frame" x="0.0" y="18" width="375" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="17"/>
+                                    <color key="textColor" red="1" green="0.90980392156862744" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Star Wars" id="EW0-VE-akZ"/>
+                                </items>
+                            </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-9F-KC8">
+                                <rect key="frame" x="20" y="70" width="335" height="29"/>
+                                <segments>
+                                    <segment title="Name"/>
+                                    <segment title="Birth year"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="IMg-Y3-rNp"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dI3-DC-TN0">
+                                <rect key="frame" x="0.0" y="162" width="375" height="505"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="starCell" id="8KU-Rp-1fh" customClass="StarCell" customModule="star" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8KU-Rp-1fh" id="MLC-si-uiK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei6-pC-1nq">
+                                                    <rect key="frame" x="330" y="10" width="25" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="24" id="lMd-Rn-hdQ"/>
+                                                        <constraint firstAttribute="width" constant="25" id="vKs-ty-UBf"/>
+                                                    </constraints>
+                                                    <state key="normal" image="star_empty"/>
+                                                    <connections>
+                                                        <action selector="starButtonPressed:" destination="8KU-Rp-1fh" eventType="touchUpInside" id="Ehq-yI-D3j"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qH-Yr-dwB">
+                                                    <rect key="frame" x="20" y="13" width="302" height="19"/>
+                                                    <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9qH-Yr-dwB" firstAttribute="leading" secondItem="MLC-si-uiK" secondAttribute="leading" constant="20" id="2h5-RC-6gH"/>
+                                                <constraint firstItem="9qH-Yr-dwB" firstAttribute="centerY" secondItem="Ei6-pC-1nq" secondAttribute="centerY" id="CnS-cZ-S5Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ei6-pC-1nq" secondAttribute="trailing" constant="20" id="VUV-OL-8xU"/>
+                                                <constraint firstItem="Ei6-pC-1nq" firstAttribute="leading" secondItem="9qH-Yr-dwB" secondAttribute="trailing" constant="8" id="ifK-6c-HZx"/>
+                                                <constraint firstItem="Ei6-pC-1nq" firstAttribute="centerY" secondItem="MLC-si-uiK" secondAttribute="centerY" id="kVm-Ub-Lt1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="9qH-Yr-dwB" id="Dx5-zq-7Vu"/>
+                                            <outlet property="starButton" destination="Ei6-pC-1nq" id="tOI-ep-Ujb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mnr-9F-KC8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8wC-zV-lOF"/>
+                            <constraint firstItem="udh-Qq-zDa" firstAttribute="top" secondItem="mnr-9F-KC8" secondAttribute="bottom" constant="8" id="Eah-kk-foh"/>
+                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NYc-Jx-EH6"/>
+                            <constraint firstItem="udh-Qq-zDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T2Q-ki-r2X"/>
+                            <constraint firstItem="mnr-9F-KC8" firstAttribute="top" secondItem="GqC-yG-G6Z" secondAttribute="bottom" constant="8" id="WBF-Op-lqA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mnr-9F-KC8" secondAttribute="trailing" constant="20" id="bJb-x6-kIa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dI3-DC-TN0" secondAttribute="bottom" id="bvZ-oc-Va7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dI3-DC-TN0" secondAttribute="trailing" id="cV5-gZ-ttm"/>
+                            <constraint firstItem="dI3-DC-TN0" firstAttribute="top" secondItem="udh-Qq-zDa" secondAttribute="bottom" id="iFa-qT-ejO"/>
+                            <constraint firstItem="dI3-DC-TN0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="laV-l6-fRo"/>
+                            <constraint firstItem="udh-Qq-zDa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ptc-md-Qw5"/>
+                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="18" id="tlA-9C-9Lr"/>
+                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vEn-wj-x41"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Star Wars" id="MS9-mi-129"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="mnr-9F-KC8" id="goL-YF-9Zv"/>
+                        <outlet property="tableView" destination="dI3-DC-TN0" id="tX2-LI-2PT"/>
+                        <segue destination="guf-YQ-odx" kind="show" identifier="DetailVC" id="z3x-Zu-wdq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Title-->
+        <scene sceneID="lZ4-CO-l5q">
+            <objects>
+                <viewController id="guf-YQ-odx" customClass="DetailVC" customModule="star" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TKA-S6-NyR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wtz-ON-BaH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="oOg-Ny-EOV" customClass="DetailCell" customModule="star" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oOg-Ny-EOV" id="nW3-ea-eio">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-jD-zc2">
+                                                    <rect key="frame" x="15" y="10" width="345" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bzo-jD-zc2" secondAttribute="trailing" constant="15" id="5Bt-xB-ZhY"/>
+                                                <constraint firstItem="bzo-jD-zc2" firstAttribute="leading" secondItem="nW3-ea-eio" secondAttribute="leading" constant="15" id="UL7-Mh-3bz"/>
+                                                <constraint firstItem="bzo-jD-zc2" firstAttribute="top" secondItem="nW3-ea-eio" secondAttribute="top" constant="10" id="k8L-0B-18v"/>
+                                                <constraint firstAttribute="bottom" secondItem="bzo-jD-zc2" secondAttribute="bottom" constant="10" id="ziI-QV-x6z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="bzo-jD-zc2" id="2hJ-GS-P6c"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wtz-ON-BaH" firstAttribute="top" secondItem="QNR-zg-dYS" secondAttribute="top" id="HyQ-Yh-idA"/>
+                            <constraint firstItem="QNR-zg-dYS" firstAttribute="bottom" secondItem="wtz-ON-BaH" secondAttribute="bottom" id="Tsg-md-cYf"/>
+                            <constraint firstItem="QNR-zg-dYS" firstAttribute="trailing" secondItem="wtz-ON-BaH" secondAttribute="trailing" id="wHj-t8-gpy"/>
+                            <constraint firstItem="wtz-ON-BaH" firstAttribute="leading" secondItem="QNR-zg-dYS" secondAttribute="leading" id="yqt-kX-PSf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QNR-zg-dYS"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="9Zg-P3-XQi"/>
+                    <connections>
+                        <outlet property="detailTableView" destination="wtz-ON-BaH" id="fod-7a-C81"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bDD-zn-6iI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="296"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star_empty" width="50" height="48"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
