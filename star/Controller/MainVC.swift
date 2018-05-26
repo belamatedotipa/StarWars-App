@@ -14,6 +14,16 @@ class MainVC: UIViewController {
     
     
     var currentSort : [Star] = []
+    
+    //callbackhez
+    var stars: [Star] = []
+//    fileprivate
+    var starUIs: [StarUIModel] = []
+    var dataService : DataService? = DataService()
+    
+    
+    
+    
     let image1 = UIImage(named: FAV_EMPTY) as UIImage?
     let image2 = UIImage(named: FAV_FILLED) as UIImage?
     
@@ -22,7 +32,8 @@ class MainVC: UIViewController {
     var buttonIsSelected = false
     
     //Wrappers for extended struct
-    fileprivate struct StarUIModel {
+//    fileprivate
+    public struct StarUIModel {
         var name: String
         var height: String
         var mass: String
@@ -88,75 +99,74 @@ class MainVC: UIViewController {
     
     
     //MARK: - Functions
-    
     func getPeople() {
-        DataService.instance.findAllPeople { (success) in
-            if success {
-                
-                self.tableView.reloadData()
-                
-               //Update tableview
-                } else {
-                    //Handle Error
-                }
-                // do stuff with data
-            let dataService = DataService()
+        dataService?.findAllPeopleWithPassing { (people) in
             
-            let starModelss = self.dataService.nameArray.map { (star) -> StarUIModel in
-                return star
-            }
+            guard let nameArray = people else {return}
+                self.stars = nameArray
+            
+            
+            
+ 
+        
+            // do stuff with data
+            //let starModels = self.dataService.nameArray.map {StarUIModel(star: $0)}
+//            let starModels = nameArray.map {StarUIModel(star: $0)}
+            self.starUIs = nameArray.map {StarUIModel(star: $0)}
+            let starsWrapped = nameArray.map {StarUIModel(star: $0)}
+           print(self.starUIs)
+            self.tableView.reloadData()
+            
             }
         }
+    
+    
+//    func getPeople() {
+//        DataService.instance.findAllPeople { (success) in
+//            if success {
+//
+//                self.tableView.reloadData()
+//
+//                self.stars = DataService.instance.nameArray
+//               //Update tableview
+//                } else {
+//                    //Handle Error
+//                }
+//                // do stuff with data
+//            self.stars =
+//            let starModelss = self.dataService.nameArray.map { (star) -> StarUIModel in
+//                return star
+//            }
+//            }
+//        }
     
     func favMethod(cell: UITableViewCell) {
        print("yay")
         let indexPathTapped = tableView.indexPath(for: cell)
-        print(indexPathTapped)
+        print(indexPathTapped!)
         //FIXMe: chacnge array to dict once it works
-        var favoritedStar = DataService.instance.nameArray[indexPathTapped!.row]
         
-        
-//        guard var hasFavorited = favoritedStar.favorited else {
-//            favoritedStar.favorited = true
-//            return
-//        }
-//        favoritedStar.favorited = !favoritedStar.favorited
-        
-        if favoritedStar.favorited == nil {
-            favoritedStar.favorited = true
-        } else {
-            favoritedStar.favorited = !favoritedStar.favorited!
-        }
-        print(DataService.instance.nameArray[indexPathTapped!.row])
+        //var favoritedStar = DataService.instance.nameArray[indexPathTapped!.row]
+        var favoritedStar = starUIs[indexPathTapped!.row]
+        starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
+        //print(DataService.instance.nameArray[indexPathTapped!.row])
         print(favoritedStar)
+        print(starUIs)
         tableView.reloadData()
         
-        print(favoritedStar)
-        
-        
     }
-    
-    
-    
     
        //MARK: - Actions
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
         var selectedSegmentIndex = sender.selectedSegmentIndex
         
         tableView.reloadData()
-    }
+}
+
+}
+
+
     
-
-    
-    
-    
-    }
-
-
-
-
-
-
 
 extension MainVC: UITableViewDelegate {
     
@@ -168,11 +178,15 @@ extension MainVC: UITableViewDelegate {
         //dump(DataService.instance.starDict[segmentIndex])
         
         //return DataService.instance.starDict[segmentIndex]!.count
-        return DataService.instance.nameArray.count
+//        return DataService.nameArray.count
+        print(starUIs.count)
+        return starUIs.count
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let star = DataService.instance.nameArray[indexPath.row]
+//        let star = DataService.nameArray[indexPath.row]
+        let star = starUIs[indexPath.row]
         //let star = DataService.instance.starDict[segmentIndex]![indexPath.row]
         
         performSegue(withIdentifier: DETAIL_VC, sender: star)
@@ -182,7 +196,7 @@ extension MainVC: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == DETAIL_VC {
             if let destination = segue.destination as? DetailVC {
-                if let star = sender as? Star {
+                if let star = sender as? StarUIModel {
                     destination.star = star
                 }
             }
@@ -194,18 +208,25 @@ extension MainVC: UITableViewDelegate {
 extension MainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: STAR_CELL, for: indexPath) as? StarCell {
-            
-            let star = DataService.instance.nameArray[indexPath.row]
+            //let star = stars[indexPath.row]
+            let star = starUIs[indexPath.row]
+
             //let star = DataService.instance.starDict[segmentIndex]![indexPath.row]
             cell.link = self
-            cell.configureCell(star: star)
+//            cell.configureCell(star: star)
             //favorites[star.name] = false
-            print(star.favorited)
-            if star.favorited != nil {
-                cell.starButton.tintColor = star.favorited! ? UIColor.yellow:UIColor.lightGray
-                print(cell.starButton.tintColor)
+            //print(starUIs.favorited)
+             cell.nameLbl.text = star.name
+//            cell.starButton.tintColor = star.favorited ? UIColor.lightGray:UIColor.yellow
+            if star.favorited {
+                cell.starButton.setImage(UIImage(named:  FAV_FILLED), for: .normal)
+                print("igen")
+            } else {
+                cell.starButton.setImage(UIImage(named:  FAV_EMPTY), for: .normal)
+                print("nem")
             }
             
+//            print(cell.starButton.tintColor)
             return cell
         } else {
             return UITableViewCell()
@@ -225,6 +246,8 @@ private extension SegmentedKey {
         }
 }
 }
+
+
 
 
 

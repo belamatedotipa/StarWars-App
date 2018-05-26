@@ -18,6 +18,7 @@ enum SegmentedKey {
 
 struct StarParent: Decodable {
     var results: [Star]
+    
 }
 
 struct Star: Decodable{
@@ -39,29 +40,8 @@ struct Star: Decodable{
     let created: String
     let edited: String
     let url: String
-//    var favorited: Bool?
-    
-//    init(name: String
-//     height: String
-//    , mass: String
-//    , hair_color: String
-//    , skin_color: String
-//    , eye_color: String
-//    , birth_year: String
-//    , gender: String
-//    , homeworld: String
-//    , films: [String]?
-//    , species: [String]?
-//    , vehicles: [String]?
-//    , starships: [String]?
-//    , created: String
-//    , edited: String
-//    , url: String
-//    ,favorited: Bool?
-//)
-    mutating func changeFavorited(){
-        favorited = false
-    }
+
+
     }
 
 

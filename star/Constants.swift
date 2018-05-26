@@ -9,6 +9,8 @@
 import Foundation
 
 typealias CompletionHandler = (_ Success: Bool) -> ()
+typealias CompletionHandlerForPeople = ([Star]?) -> ()
+
 
 
 //MARK: - URLS

@@ -10,122 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "star/Services/DetailService.swift"
-            timestampString = "548709003.8844399"
+            timestampString = "549058771.476774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "findAllFilms(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in star.DetailService.findAllFilms(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.770712"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "1546">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in star.DetailService.findAllFilms(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.77627"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "2351">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in star.DetailService.findAllFilms(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.779021"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "2382">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "star/Services/DetailService.swift"
-            timestampString = "548709003.885516"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "findAllFilms(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "star/Controller/DetailVC.swift"
-            timestampString = "548709003.886024"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "getAllFilms()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "star/Controller/DetailVC.swift"
-            timestampString = "548709003.886456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "star/Services/DetailService.swift"
-            timestampString = "548709003.886539"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "findAllFilms(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -137,60 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "star/Services/DetailService.swift"
-            timestampString = "548709003.887094"
+            timestampString = "549058771.476876"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "DetailService"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "star.DetailService.filmDict.getter : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.811901"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "star.DetailService.filmDict.setter : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.814827"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "98">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "star.DetailService.init() -&gt; star.DetailService"
-                  moduleName = "star"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/belamatebarandi/Dropbox/iOS/Projects/star/star/Services/DetailService.swift"
-                  timestampString = "548722419.8182549"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "517">
-               </Location>
-            </Locations>
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "findAllFilms(completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "star/Services/DataService.swift"
-            timestampString = "548722417.552137"
+            timestampString = "549058771.476952"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "findAllPeople(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -216,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "star/View/StarCell.swift"
-            timestampString = "548709003.887908"
+            timestampString = "549036577.152436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "starButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "star/Controller/MainVC.swift"
-            timestampString = "548709003.888702"
+            filePath = "star/Controller/DetailVC.swift"
+            timestampString = "549058771.4774849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "getHomelandName(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -247,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "star/Controller/MainVC.swift"
-            timestampString = "548709003.889884"
+            filePath = "star/Controller/DetailVC.swift"
+            timestampString = "549058771.477879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "sortData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -263,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "star/Controller/MainVC.swift"
-            timestampString = "548709003.890669"
+            filePath = "star/Services/DataService.swift"
+            timestampString = "549058771.478201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "favMethod(cell:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "findAllPeople(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

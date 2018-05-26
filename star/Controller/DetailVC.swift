@@ -11,10 +11,17 @@ import UIKit
 class DetailVC: UIViewController {
     
      //MARK: - Properties
-    var star : Star!
+    var detailService : DetailService? = DetailService()
+    
+    var star : MainVC.StarUIModel!
+    var vehicleNameArray: [String] = []
+    var filmNameArray: [String] = []
+    var homeland: String = ""
+    
     var filmURLArray: [String] = []
     var fileteredFilmArray: [Film] = []
     var film : [Film] = []
+  
     
     //Tableview
     let SectionHeaderHeight: CGFloat = 25
@@ -27,36 +34,125 @@ class DetailVC: UIViewController {
     
     var data = [TableSection: [String]]()
 
-    
-    func sortData() {
-        data[.homeworld] = [star.homeworld]
-        data[.films] = star.films
-        data[.vehicles] = star.vehicles
-    }
-    
-
-    
     //MARK: - Outlets
     @IBOutlet weak var detailTableView: UITableView!
     
     
+    //Vehicles
     
-    fileprivate func getAllFilms() {
-        DetailService.instance.findAllFilms { (success) in
-            if success {
-                //self.tableView.reloadData()
-                //Update tableview
-            } else {
-                //Handle Error
-            }
-            // do stuff with data
-            
+    func getAllVehicles(urlArray: [String]) {
+        for url in urlArray {
+            detailService?.findVehicle(url: url, completion: { (vehicle, error) in
+                guard let item = vehicle else {return}
+                let name = item.name
+                self.vehicleNameArray.append(name)
+                print(self.vehicleNameArray)
         }
+            )
+    }
     }
     
+    
+    
+    
+    func getVehicleName(url: String) {
+        detailService?.findVehicle(url: url, completion: { (vehicle, error) in
+            guard let item = vehicle else {return}
+            let name = item.name
+            self.vehicleNameArray.append(name)
+            print(self.vehicleNameArray)
+            print(name)
+        }
+        )
+        }
+
+    
+    fileprivate func getVehicles(_ vehicleArray: [String]) {
+        for url in vehicleArray {
+            print(url)
+            getVehicleName(url: url)
+        }
+        data[.vehicles] = vehicleNameArray
+    }
+    
+    //Films
+    func getFilmName(url: String) {
+        detailService?.findFilm(url: url, completion: { (film, error) in
+            guard let item = film else {return}
+            let name = item.title
+            self.filmNameArray.append(name)
+            print(self.filmNameArray)
+            print(name)
+        }
+        )
+        
+    }
+    
+    fileprivate func getFilms(_ filmArray: [String]) {
+        for url in filmArray {
+            print(url)
+            getFilmName(url: url)
+        }
+        self.data[.films] = filmNameArray
+    }
+    
+    //Homeland
+    func getHomelandName(url: String) {
+        detailService?.findPlanet(url: url, completion: { (planet, error) in
+            guard let item = planet else {return}
+            let name = item.name
+            self.homeland = name
+            print(self.homeland)
+            self.data[.homeworld] = [self.homeland]
+        }
+        )
+    }
+    
+    func sortData() {
+//        data[.homeworld] = [homeland]
+//        data[.films] = filmNameArray
+//        data[.vehicles] = vehicleNameArray
+        print(data)
+        detailTableView.reloadData()
+    }
+    
+    
+    //MARK: - VC
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAllFilms()
+        
+        //getVehicleName(url: "https://swapi.co/api/vehicles/30/")
+        
+        guard let vehicleArray = star.vehicles else {return}
+        getVehicles(vehicleArray)
+        
+        guard let filmArray = star.films else {return}
+        getFilms(filmArray)
+        
+        let homeWorld = star.homeworld
+        getHomelandName(url: homeWorld)
+        
+        print(vehicleNameArray,filmNameArray,homeland)
+        
+        detailTableView.reloadData()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        sortData()
+        print(data)
+
+        
+      
         
 //        let filmTitles = film.filter {
 //            filmURLArray.contains($0.url)
@@ -72,18 +168,17 @@ class DetailVC: UIViewController {
 //        let filmTitles = film.map { (<#Film#>) -> T in
 //            <#code#>
 //        }
-        sortData()
-        print(data)
+    
         //tableview setup
         
         detailTableView.dataSource = self
-       detailTableView.delegate = self
+        detailTableView.delegate = self
         detailTableView.reloadData()
 
         
-        print(film)
-        let filteredFilmArray = film.filter { (filmURLArray.contains($0.url)) }
-        print(filteredFilmArray)
+//        print(film)
+//        let filteredFilmArray = film.filter { (filmURLArray.contains($0.url)) }
+//        print(filteredFilmArray)
         
          // Do any additional setup after loading the view.
     }

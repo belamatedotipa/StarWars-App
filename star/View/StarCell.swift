@@ -10,7 +10,10 @@ import UIKit
 
 class StarCell: UITableViewCell {
     
+    
+    
     var link: MainVC?
+    
     
    //MARK: - Outlets
     @IBOutlet weak var nameLbl: UILabel!
@@ -35,8 +38,8 @@ class StarCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(star: Star)  {
-        nameLbl.text = star.name
-    }
+//    func configureCell(star: Star)  {
+//        nameLbl.text = star.name
+//    }
 
 }

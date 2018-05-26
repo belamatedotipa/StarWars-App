@@ -12,7 +12,7 @@ import Alamofire
 class DataService {
     
     //MARK: - Properties
-    static let instance = DataService()
+    //static let instance = DataService()
     var star : [Star] = []
     // var starDict: [SegmentedKey: [Star]] = [:]
 
@@ -32,6 +32,7 @@ class DataService {
                 if response.result.error == nil {
   //                  print(response)
                     guard let data = response.data else { return }
+                    
 
                     do {
  
@@ -64,7 +65,7 @@ class DataService {
                         debugPrint(error as Any)
                     }
                 
-                    completion(true)
+//                    completion(Error)
                     
                 } else {
                     completion(false)
@@ -76,6 +77,36 @@ class DataService {
     
     
 }
+    
+    func findAllPeopleWithPassing(completion: @escaping CompletionHandlerForPeople) {
+        
+        Alamofire.request(URL_PEOPLE, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+//                print(response)
+                guard let data = response.data else { return }
+                
+                do {
+                    
+                    let json = try JSONDecoder().decode(StarParent.self, from: data)
+                    let starWarsPeopleDataArray = json.results
+                    completion(starWarsPeopleDataArray)
+                
+                } catch let error {
+                    debugPrint(error as Any)
+                }
+
+            } else {
+                completion(nil)
+                debugPrint(response.result.error as Any)
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    
 
     
     
