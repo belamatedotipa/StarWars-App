@@ -26,7 +26,7 @@ class StarCell: UITableViewCell {
     }
     
     @IBAction func starButtonPressed(_ sender: Any) {
-        print("I'm in-pressed")
+        
         link?.favMethod(cell: self)
     }
     
@@ -37,8 +37,5 @@ class StarCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func configureCell(star: Star)  {
-//        nameLbl.text = star.name
-//    }
 
 }

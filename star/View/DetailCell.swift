@@ -11,9 +11,6 @@ import UIKit
 class DetailCell: UITableViewCell {
 
     
-
-    
-    
     //MARK: - Outlets
     @IBOutlet weak var detailLabel: UILabel!
     

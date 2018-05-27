@@ -211,7 +211,7 @@ class DataService {
                         
                         print(starWarsPeopleDataArray)
                         allPagesFetched.notify(queue: DispatchQueue.main) {
-                            completion(starWarsPeopleDataArray) //sort?
+                            completion(starWarsPeopleDataArray.sorted{$0.name<$1.name})
                         }
                         
                     
