@@ -18,7 +18,9 @@ enum SegmentedKey {
 
 struct StarParent: Decodable {
     var results: [Star]
-    
+    var count: Int?
+    var next: String?
+    var previous: String?
 }
 
 struct Star: Decodable{

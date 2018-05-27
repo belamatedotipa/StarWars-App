@@ -109,11 +109,10 @@ class DetailVC: UIViewController {
     }
     
     func sortData() {
-//        data[.homeworld] = [homeland]
-//        data[.films] = filmNameArray
-//        data[.vehicles] = vehicleNameArray
-        print(data)
-        detailTableView.reloadData()
+        data[.homeworld] = star.[homeland]
+        data[.films] = star.films
+        data[.vehicles] = star.vehicles
+
     }
     
     
@@ -193,6 +192,21 @@ extension DetailVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: DETAIL_CELL, for: indexPath) as! DetailCell
         // Similar to above, first check if there is a valid section of table.
         // Then we check that for the section there is a row.
+        
+        //case VEHICLES_SECTION:
+//        if let vehiclesArray = person?.vehicles{
+//            cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
+//            cell.accessoryType = .disclosureIndicator
+//            let id = vehiclesArray[indexPath.row]
+//            DataRepo.getNameForId(id: id, type: .vehicles){ name in
+//                cell.textLabel?.text = name
+//            }
+//        }
+//        else{
+//            cell = tableView.dequeueReusableCell(withIdentifier: "BasicCell", for: indexPath)
+//            cell.textLabel?.text = "Bad cell"
+//        }
+        
         if let tableSection = TableSection(rawValue: indexPath.section), let detail = data[tableSection]?[indexPath.row] {
             cell.detailLabel.text = detail
         }
