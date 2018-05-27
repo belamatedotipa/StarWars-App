@@ -36,3 +36,6 @@ let DETAIL_VC = "DetailVC"
 let HEADER = [
     "Content-Type": "application/json"
 ]
+
+//MARK: - Other
+let SWAPI_ITEMS_PER_PAGE = 10

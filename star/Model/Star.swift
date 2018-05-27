@@ -42,8 +42,6 @@ struct Star: Decodable{
     let created: String
     let edited: String
     let url: String
-
-
     }
 
 

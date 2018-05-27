@@ -47,16 +47,6 @@
                                 <rect key="frame" x="0.0" y="106" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-yG-G6Z">
-                                <rect key="frame" x="0.0" y="18" width="375" height="44"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="17"/>
-                                    <color key="textColor" red="1" green="0.90980392156862744" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Star Wars" id="EW0-VE-akZ"/>
-                                </items>
-                            </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mnr-9F-KC8">
                                 <rect key="frame" x="20" y="70" width="335" height="29"/>
                                 <segments>
@@ -91,8 +81,8 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qH-Yr-dwB">
-                                                    <rect key="frame" x="20" y="13" width="302" height="19"/>
-                                                    <fontDescription key="fontDescription" name="StarJedi" family="Star Jedi" pointSize="16"/>
+                                                    <rect key="frame" x="20" y="12" width="302" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.90980392160000001" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -118,17 +108,14 @@
                         <constraints>
                             <constraint firstItem="mnr-9F-KC8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8wC-zV-lOF"/>
                             <constraint firstItem="udh-Qq-zDa" firstAttribute="top" secondItem="mnr-9F-KC8" secondAttribute="bottom" constant="8" id="Eah-kk-foh"/>
-                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NYc-Jx-EH6"/>
+                            <constraint firstItem="mnr-9F-KC8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="Qel-fJ-V8i"/>
                             <constraint firstItem="udh-Qq-zDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T2Q-ki-r2X"/>
-                            <constraint firstItem="mnr-9F-KC8" firstAttribute="top" secondItem="GqC-yG-G6Z" secondAttribute="bottom" constant="8" id="WBF-Op-lqA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mnr-9F-KC8" secondAttribute="trailing" constant="20" id="bJb-x6-kIa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dI3-DC-TN0" secondAttribute="bottom" id="bvZ-oc-Va7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dI3-DC-TN0" secondAttribute="trailing" id="cV5-gZ-ttm"/>
                             <constraint firstItem="dI3-DC-TN0" firstAttribute="top" secondItem="udh-Qq-zDa" secondAttribute="bottom" id="iFa-qT-ejO"/>
                             <constraint firstItem="dI3-DC-TN0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="laV-l6-fRo"/>
                             <constraint firstItem="udh-Qq-zDa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ptc-md-Qw5"/>
-                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="18" id="tlA-9C-9Lr"/>
-                            <constraint firstItem="GqC-yG-G6Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vEn-wj-x41"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -142,7 +129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Title-->
+        <!--Details-->
         <scene sceneID="lZ4-CO-l5q">
             <objects>
                 <viewController id="guf-YQ-odx" customClass="DetailVC" customModule="star" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,7 +179,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QNR-zg-dYS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="9Zg-P3-XQi"/>
+                    <navigationItem key="navigationItem" title="Details" id="9Zg-P3-XQi"/>
                     <connections>
                         <outlet property="detailTableView" destination="wtz-ON-BaH" id="fod-7a-C81"/>
                     </connections>

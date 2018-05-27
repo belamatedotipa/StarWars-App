@@ -21,9 +21,7 @@ class MainVC: UIViewController {
     var starUIs: [StarUIModel] = []
     var dataService : DataService? = DataService()
     
-    
-    
-    
+
     let image1 = UIImage(named: FAV_EMPTY) as UIImage?
     let image2 = UIImage(named: FAV_FILLED) as UIImage?
     
@@ -84,8 +82,6 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         tableView.delegate = self
         tableView.dataSource = self
         getPeople()
@@ -104,11 +100,6 @@ class MainVC: UIViewController {
             
             guard let nameArray = people else {return}
                 self.stars = nameArray
-            
-            
-            
- 
-        
             // do stuff with data
             //let starModels = self.dataService.nameArray.map {StarUIModel(star: $0)}
 //            let starModels = nameArray.map {StarUIModel(star: $0)}
@@ -159,14 +150,10 @@ class MainVC: UIViewController {
        //MARK: - Actions
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
         var selectedSegmentIndex = sender.selectedSegmentIndex
-        
         tableView.reloadData()
 }
 
 }
-
-
-    
 
 extension MainVC: UITableViewDelegate {
     
@@ -210,13 +197,16 @@ extension MainVC: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: STAR_CELL, for: indexPath) as? StarCell {
             //let star = stars[indexPath.row]
             let star = starUIs[indexPath.row]
+            
 
             //let star = DataService.instance.starDict[segmentIndex]![indexPath.row]
             cell.link = self
 //            cell.configureCell(star: star)
             //favorites[star.name] = false
             //print(starUIs.favorited)
+ 
              cell.nameLbl.text = star.name
+            
 //            cell.starButton.tintColor = star.favorited ? UIColor.lightGray:UIColor.yellow
             if star.favorited {
                 cell.starButton.setImage(UIImage(named:  FAV_FILLED), for: .normal)
