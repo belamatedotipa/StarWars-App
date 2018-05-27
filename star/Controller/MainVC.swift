@@ -84,7 +84,22 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        getPeople()
+        
+        ///
+//        dataService?.getAllStars(completion: { (people) in
+//            print("somthing")
+//            guard let peopleArray = people else {return}
+//            print(peopleArray)
+//        })
+        
+        
+        
+        
+        
+        ////
+        
+//        getPeople()
+        getStars()
 
     }
 
@@ -110,6 +125,22 @@ class MainVC: UIViewController {
             
             }
         }
+    
+    func getStars() {
+        dataService?.getAllStars { (people) in
+            
+            guard let nameArray = people else {return}
+            self.stars = nameArray
+            // do stuff with data
+            //let starModels = self.dataService.nameArray.map {StarUIModel(star: $0)}
+            //            let starModels = nameArray.map {StarUIModel(star: $0)}
+            self.starUIs = nameArray.map {StarUIModel(star: $0)}
+            let starsWrapped = nameArray.map {StarUIModel(star: $0)}
+            print(self.starUIs)
+            self.tableView.reloadData()
+            
+        }
+    }
     
     
 //    func getPeople() {
