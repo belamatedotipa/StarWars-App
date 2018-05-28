@@ -28,6 +28,7 @@ Adding persistent data eg. CoraData with particular sorting keys. This would mak
 
 ### [x] Favorite button:
 The button in each cell marks characters as favorite. It changes image upon user action.
+
 ![img_4287](https://user-images.githubusercontent.com/35433040/40613910-ce34d708-6280-11e8-8012-fcd7597e48d2.PNG)
 
 #### How I was thinking: 
@@ -35,6 +36,7 @@ I have implemented the favorite button before the segmented control, making the 
 
 ### [x] Detail View:
 If you press the cell the detail of the character (homeworld, films, vehicles) are presented in a new view with a multi segment tableview.
+
 ![img_4294](https://user-images.githubusercontent.com/35433040/40620674-f3efe0e6-6299-11e8-8ba6-5839ed509f5c.PNG)
 
 #### How I was thinking: 
@@ -46,12 +48,14 @@ The network calls are made for the respective tableView cells, this creates a sl
 ## Extra Features
 ### [x] Search:
 The search feature is implemented to return characters where the search text is included in the name or the homeland of the character.
+
 ![img_4290](https://user-images.githubusercontent.com/35433040/40613907-cdcc5606-6280-11e8-95b6-41787fe71d5d.PNG)
 #### How it could be improved:
 The implementation could have been made more complex with an additional segmented control to set search target. The drawback of the current implementation is that planets are returned in the DetailVC therefore search for homeland is only possible through id. A better way to handle this would be to implement the wrapping of the dto with a protocol and set both the favorite property and the the homeland there.
 
 ### [x] Filter for favorites:
 The third segment returns a filtered list of the favorite characters
+
 ![img_4288](https://user-images.githubusercontent.com/35433040/40613909-ce193746-6280-11e8-8ce5-12878be9b2d2.PNG)
 
 ## Meta
