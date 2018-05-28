@@ -47,7 +47,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
+<<<<<<< HEAD
             landmarkName = "findAllPeople(completion:)"
+=======
+            landmarkName = "findAllStars(completion:)"
+>>>>>>> paginated
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

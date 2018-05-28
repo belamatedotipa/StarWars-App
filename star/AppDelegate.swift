@@ -16,39 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        //TODO: - Real integration
         
-        
-        //MARK: - Realm integration
-        let data = Data()
-        data.name = "dfgfdg"
-        data.height = "dfgfdg"
-        data.mass = "dfgfdg"
-        data.hair_color = "dfgfdg"
-        data.skin_color = "dfgfdg"
-        data.eye_color = "dfgfdg"
-        data.birth_year = "dfgfdg"
-        data.gender = "dfgfdg"
-        data.homeworld = "dfgfdg"
-        data.films = []
-        data.species = []
-        data.vehicles = []
-        data.starships = []
-        data.created = "dfgfdg"
-        data.edited = "dfgfdg"
-        data.url = "dfgfdg"
-        data.favorited = false
-        
-        do {
-            let realm = try Realm()
-            try realm.write {
-            realm.add(data)
-            }
-        } catch {
-            print("Error initializing Realm: \(error)")
-        }
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+//
+//
+//        do {
+//            let realm = try Realm()
+//            try realm.write {
+//            realm.add(data)
+//            }
+//        } catch {
+//            print("Error initializing Realm: \(error)")
+//        }
         
         
         

@@ -19,12 +19,11 @@ class StarCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // Initialization code
     }
     
     @IBAction func starButtonPressed(_ sender: Any) {
-        print("I'm in-pressed")
+        
         link?.favMethod(cell: self)
     }
     
@@ -35,8 +34,5 @@ class StarCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(star: Star)  {
-        nameLbl.text = star.name
-    }
 
 }
