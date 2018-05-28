@@ -8,13 +8,6 @@
 
 import Foundation
 
-//proba
-enum SegmentedKey {
-    case name
-    case birthYear
-    case favorite
-    }
-
 
 struct StarParent: Decodable {
     var results: [Star]

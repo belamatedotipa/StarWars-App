@@ -12,16 +12,8 @@ class DetailVC: UIViewController {
     
      //MARK: - Properties
     var detailService : DetailService? = DetailService()
-    
     var star : MainVC.StarUIModel!
-
-    
-    var filmURLArray: [String] = []
     var fileteredFilmArray: [Film] = []
-    var film : [Film] = []
-  
-    
-    //Tableview
     let SectionHeaderHeight: CGFloat = 25
     enum TableSection: Int {
         case homeworld = 0
@@ -48,16 +40,10 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sortData()
-        detailTableView.reloadData()
-
-    
-        //tableview setup
-        
         detailTableView.dataSource = self
         detailTableView.delegate = self
         detailTableView.reloadData()
-        
-         // Do any additional setup after loading the view.
+
     }
 
 
@@ -68,15 +54,14 @@ extension DetailVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DETAIL_CELL, for: indexPath) as! DetailCell
-        // Similar to above, first check if there is a valid section of table.
+        
+        // First check if there is a valid section of table.
         // Then we check that for the section there is a row.
-        
-        
         if let tableSection = TableSection(rawValue: indexPath.section), let detail = data[tableSection]?[indexPath.row] {
-            print(tableSection)
+
             switch tableSection {
             case .homeworld:
-                //guard let url = data[tableSection]?[indexPath.row] else {return}
+
                 detailService?.findPlanet(url: detail, completion: { (planet, error) in
                     guard let item = planet else {return}
                     let name = item.name
@@ -121,9 +106,7 @@ extension DetailVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        // If we wanted to always show a section header regardless of whether or not there were rows in it,
-        // then uncomment this line below:
-        //return SectionHeaderHeight
+
         // First check if there is a valid section of table.
         // Then we check that for the section there is more than 1 row.
         if let tableSection = TableSection(rawValue: section), let starData = data[tableSection], starData.count > 0 {

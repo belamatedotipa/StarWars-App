@@ -10,10 +10,7 @@ import UIKit
 
 class StarCell: UITableViewCell {
     
-    
-    
     var link: MainVC?
-    
     
    //MARK: - Outlets
     @IBOutlet weak var nameLbl: UILabel!

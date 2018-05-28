@@ -11,36 +11,21 @@ import UIKit
 class MainVC: UIViewController {
     
     //MARK: - Properties
-    
-    
-    var currentSort : [Star] = []
-    
-    //callbackhez
-    var stars: [Star] = []
-//    fileprivate
     var starUIs: [StarUIModel] = []
     var starUISegment: [StarUIModel] = []
     var filteredStars: [StarUIModel] = []
     var dataService : DataService? = DataService()
     var detailService : DetailService? = DetailService()
-    //proba
-    var index: Int = 0
-    
-    
-    
-    let image1 = UIImage(named: FAV_EMPTY) as UIImage?
-    let image2 = UIImage(named: FAV_FILLED) as UIImage?
-    
-    //for fav button
+
+    //For favorite button
     var favorites : [String:Bool] = [:]
     var buttonIsSelected = false
     var selectedSegmentIndex : Int = 0
     let searchController = UISearchController(searchResultsController: nil)
+    var index: Int = 0
     
-    
-    //Wrappers for extended struct
-//    fileprivate
-    public struct StarUIModel {
+    //Wrapper for dto
+    struct StarUIModel {
         var name: String
         var height: String
         var mass: String
@@ -60,7 +45,6 @@ class MainVC: UIViewController {
         var favorited: Bool
         
         init(star: Star) {
-            // TODO: notification.type image
             name = star.name
             height = star.height
             mass = star.mass
@@ -80,9 +64,6 @@ class MainVC: UIViewController {
             favorited = false
             }
     }
-    
-
-    
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -104,37 +85,13 @@ class MainVC: UIViewController {
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
 
-    }
-    
-    
-    //MARK: - Functions
-//    func getPeople() {
-//        dataService?.findAllPeopleWithPassing { (people) in
-//
-//            guard let nameArray = people else {return}
-//            self.stars = nameArray
-//            self.starUIs = nameArray.map {StarUIModel(star: $0)}
-//
-//           print(self.starUIs)
-//            self.tableView.reloadData()
-//
-//            }
-//        }
-    
     func getStars() {
-        dataService?.getAllStars { (people) in
+        dataService?.findAllStars { (people) in
             
             guard let nameArray = people else {return}
-            self.stars = nameArray
-            // do stuff with data
-            //let starModels = self.dataService.nameArray.map {StarUIModel(star: $0)}
-            //            let starModels = nameArray.map {StarUIModel(star: $0)}
             self.starUIs = nameArray.map {StarUIModel(star: $0)}
             self.starUISegment = self.starUIs
-            print(self.starUIs)
             self.tableView.reloadData()
             
         }
@@ -142,43 +99,25 @@ class MainVC: UIViewController {
     
     
     func favMethod(cell: UITableViewCell) {
-       print("yay")
+ 
         let indexPathTapped = tableView.indexPath(for: cell)
-        print(indexPathTapped!)
-        
-//        switch selectedSegmentIndex {
-//        case 1:
-//            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
-//        case 2:
-//            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
-//        default:
-//            starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
-//        }
+
+
         if selectedSegmentIndex != 0 {
             var index = 0
         for n in starUIs {
             index += 1
             if n.name == starUISegment[indexPathTapped!.row].name {
-            print(n.name)
               self.index = index-1
-//                return
             }
             }
-            print(self.index)
             starUIs[self.index].favorited = !starUIs[self.index].favorited
-//            print(starUIs[index])
-            print("gecc")
             starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
         } else {
             starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
             starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
         }
-//        starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
-//        starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
-
-        print(starUIs)
         tableView.reloadData()
-        
     }
     
     // MARK: - Search helper functions
@@ -194,21 +133,13 @@ class MainVC: UIViewController {
              star.name.lowercased().contains(searchText.lowercased())
                  || star.homeworld.lowercased().contains(searchText.lowercased())
             )
-            
         })
-        
         tableView.reloadData()
     }
-    
-    
-    
-    
     
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
-    
-    
     
     
        //MARK: - Actions
@@ -220,7 +151,7 @@ class MainVC: UIViewController {
             starUISegment = starUIs.sorted(by: {$0.birthYear<$1.birthYear})
             tableView.reloadData()
         case 2:
-//            starUIs.sort(by: {$0.birthYear<$1.birthYear})
+
             starUISegment = starUIs.filter { $0.favorited }
             tableView.reloadData()
         default:
@@ -229,9 +160,9 @@ class MainVC: UIViewController {
         }
 
 }
-
 }
 
+// MARK: - TableView Delegate
 extension MainVC: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -239,26 +170,16 @@ extension MainVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //dump(DataService.instance.starDict[segmentIndex])
-        
-        //return DataService.instance.starDict[segmentIndex]!.count
-//        return DataService.nameArray.count
-        print(starUISegment.count)
-        
+
         if isFiltering() {
             return filteredStars.count
         }
-        
         return starUISegment.count
-//        return starUISegment.count
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let star = DataService.nameArray[indexPath.row]
+
         let star = starUISegment[indexPath.row]
-        //let star = DataService.instance.starDict[segmentIndex]![indexPath.row]
-        
         performSegue(withIdentifier: DETAIL_VC, sender: star)
         
     }
@@ -275,37 +196,28 @@ extension MainVC: UITableViewDelegate {
     
 }
 
+// MARK: - TableView DataSource
 extension MainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: STAR_CELL, for: indexPath) as? StarCell {
-            //let star = stars[indexPath.row]
+            
             let star: StarUIModel
+            
             if isFiltering() {
                 star = filteredStars[indexPath.row]
             } else {
                 star = starUISegment[indexPath.row]
             }
-//            let star = starUISegment[indexPath.row]
-            
 
-            //let star = DataService.instance.starDict[segmentIndex]![indexPath.row]
             cell.link = self
-//            cell.configureCell(star: star)
-            //favorites[star.name] = false
-            //print(starUIs.favorited)
- 
-             cell.nameLbl.text = star.name.lowercased()
+            cell.nameLbl.text = star.name.lowercased()
             
-//            cell.starButton.tintColor = star.favorited ? UIColor.lightGray:UIColor.yellow
             if star.favorited {
                 cell.starButton.setImage(UIImage(named:  FAV_FILLED), for: .normal)
-                print("igen")
             } else {
                 cell.starButton.setImage(UIImage(named:  FAV_EMPTY), for: .normal)
-                print("nem")
             }
-            
-//            print(cell.starButton.tintColor)
+
             return cell
         } else {
             return UITableViewCell()
@@ -321,19 +233,19 @@ extension MainVC: UISearchResultsUpdating {
 }
 
 
-
-private extension SegmentedKey {
-    var segmentIndex : Int {
-        switch self {
-        case .name:
-            return 0
-        case .birthYear:
-            return 1
-        case .favorite:
-            return 2
-        }
-}
-}
+//TODO: - replace selectedindex with this
+//private extension SegmentedKey {
+//    var segmentIndex : Int {
+//        switch self {
+//        case .name:
+//            return 0
+//        case .birthYear:
+//            return 1
+//        case .favorite:
+//            return 2
+//        }
+//}
+//}
 
 
 
