@@ -17,7 +17,6 @@ class MainVC: UIViewController {
     var dataService : DataService? = DataService()
     var detailService : DetailService? = DetailService()
 
-    //For favorite button
     var favorites : [String:Bool] = [:]
     var buttonIsSelected = false
     var selectedSegmentIndex : Int = 0
@@ -68,9 +67,8 @@ class MainVC: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var searchBar: UISearchBar!
     
-
+    //MARK: - View controller functions
     override func viewDidLoad() {
         super.viewDidLoad()
         searchController.searchResultsUpdater = self
@@ -85,7 +83,7 @@ class MainVC: UIViewController {
 
     }
 
-
+    
     func getStars() {
         dataService?.findAllStars { (people) in
             
@@ -97,7 +95,7 @@ class MainVC: UIViewController {
         }
     }
     
-    
+    //MARK: -  Helper function for Favorit button
     func favMethod(cell: UITableViewCell) {
  
         let indexPathTapped = tableView.indexPath(for: cell)
@@ -120,7 +118,7 @@ class MainVC: UIViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Search helper functions
+    //MARK: - Search helper functions
     
     func searchBarIsEmpty() -> Bool {
         // Returns true if the text is empty or nil
@@ -142,7 +140,7 @@ class MainVC: UIViewController {
     }
     
     
-       //MARK: - Actions
+    //MARK: - Actions
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
         //let selectedSegmentIndex = sender.selectedSegmentIndex
         selectedSegmentIndex = sender.selectedSegmentIndex

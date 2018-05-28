@@ -13,15 +13,18 @@ class DataService {
     
     
     //MARK: - Service for finding all Star Wars characters on API
+    
     func findAllStars(completion: @escaping CompletionHandlerForPeople){
         Alamofire.request(URL_PEOPLE, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-            if response.result.error == nil {
-                
+            if response.result.error != nil {
+                completion(nil)
+                debugPrint(response.result.error as Any)
+            }
                 //Hold the returned items
                 var starWarsPeopleDataArray: [Star] = []
                 // Use a dispatch group to synchronize them all finishing
                 let allPagesFetched = DispatchGroup()
-                
+
                 guard let data = response.data else { return }
 
                 do {
@@ -35,31 +38,30 @@ class DataService {
                     if(pagesToFetch > 0){
                         for page in 2...pagesToFetch + 1{
                             allPagesFetched.enter() //Enter the dispatch group
-    
+
                             let url = "\(URL_PEOPLE)?page=\(page)"
-                            
+
                             Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-                                if response.result.error == nil {
-                                    
+                                if response.result.error != nil {
+                                    completion(nil)
+                                    debugPrint(response.result.error as Any)
+                                }
+
                                     guard let data = response.data else { return }
-                                    
+
                                     do {
                                         let json = try JSONDecoder().decode(StarParent.self, from: data)
                                         let Items = json.results
 
                                         starWarsPeopleDataArray.append(contentsOf: Items)
-                                
+
                                     } catch let error {
                                         debugPrint(error as Any)
                                     }
-                                    
-                                } else {
-                                    completion(nil)
-                                    debugPrint(response.result.error as Any)
-                                }
-                            allPagesFetched.leave()
+                                
+                                allPagesFetched.leave()
+                            }
                         }
-                    }
 
                         allPagesFetched.notify(queue: DispatchQueue.main) {
                             completion(starWarsPeopleDataArray.sorted{$0.name<$1.name})
@@ -68,15 +70,13 @@ class DataService {
                 } catch let error {
                     debugPrint(error as Any)
                 }
-  
-            } else {
-                completion(nil)
-                debugPrint(response.result.error as Any)
-            }
-        
-    }
+
+
+
+        }
     }
     
+
 
     
     

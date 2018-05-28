@@ -48,7 +48,7 @@ class DetailVC: UIViewController {
 
 
 }
-
+//MARK: - TableView DataSource
 extension DetailVC: UITableViewDataSource {
 
     
@@ -88,6 +88,7 @@ extension DetailVC: UITableViewDataSource {
     }
 }
 
+//MARK: - TableView Delegate
 extension DetailVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,7 +122,7 @@ extension DetailVC: UITableViewDelegate {
 //            UIColor(red: 253.0/255.0, green: 240.0/255.0, blue: 196.0/255.0, alpha: 1)
     
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: SectionHeaderHeight))
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont(name: "StarJedi", size: 18)
         label.textColor = UIColor.black
         if let tableSection = TableSection(rawValue: section) {
             switch tableSection {
@@ -130,7 +131,7 @@ extension DetailVC: UITableViewDelegate {
             case .films:
                 label.text = "Films"
             case .vehicles:
-                label.text = "Vehicles"
+                label.text = "vehicles"
             default:
                 label.text = ""
             }
