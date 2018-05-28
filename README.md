@@ -15,6 +15,7 @@
 The API call is handled by
 
 - [x] Displaying displaying Characters in tableview
+[![Name][sortedByName]]
 - [x] Segmented control to sort list by name or birth year or filter
 - [x] Favorite button:
 The button in each cell marks characters as favorite. It changes state upon user action to match
@@ -48,12 +49,12 @@ The third segmented control of the returns a filtered list of the favorite chara
 
 Bela Mate Barandi – mate_barandi@icloud.com
 
-![sortedByName](https://user-images.githubusercontent.com/35433040/40612235-f85e01b4-6279-11e8-97cd-ad041b54f5f7.PNG)
-![sortedByBirth](https://user-images.githubusercontent.com/35433040/40612229-f7e4682c-6279-11e8-83fe-5a61d89d5c97.PNG)
-![searchScreen](https://user-images.githubusercontent.com/35433040/40612231-f800587a-6279-11e8-9861-a5c0dff2cae8.PNG)
-![detailView](https://user-images.githubusercontent.com/35433040/40612232-f8174c9c-6279-11e8-87b3-9d165ad893ca.PNG)
-![favoriteButton](https://user-images.githubusercontent.com/35433040/40612233-f830f124-6279-11e8-8325-2260f560b3b7.PNG)
-![favoriteList](https://user-images.githubusercontent.com/35433040/40612234-f8469e16-6279-11e8-9dc0-e1d3c58c7d92.PNG)
+[sortedByName]:(https://user-images.githubusercontent.com/35433040/40612235-f85e01b4-6279-11e8-97cd-ad041b54f5f7.PNG)
+[sortedByBirth]:(https://user-images.githubusercontent.com/35433040/40612229-f7e4682c-6279-11e8-83fe-5a61d89d5c97.PNG)
+[searchScreen]:(https://user-images.githubusercontent.com/35433040/40612231-f800587a-6279-11e8-9861-a5c0dff2cae8.PNG)
+[detailView]:(https://user-images.githubusercontent.com/35433040/40612232-f8174c9c-6279-11e8-87b3-9d165ad893ca.PNG)
+[favoriteButton]:(https://user-images.githubusercontent.com/35433040/40612233-f830f124-6279-11e8-8325-2260f560b3b7.PNG)
+[favoriteList]:(https://user-images.githubusercontent.com/35433040/40612234-f8469e16-6279-11e8-9dc0-e1d3c58c7d92.PNG)
 
 
 [https://github.com/yourname/github-link](https://github.com/dbader/)
