@@ -23,14 +23,18 @@ class MainVC: UIViewController {
     var filteredStars: [StarUIModel] = []
     var dataService : DataService? = DataService()
     var detailService : DetailService? = DetailService()
+    //proba
+    var index: Int = 0
     
-
+    
+    
     let image1 = UIImage(named: FAV_EMPTY) as UIImage?
     let image2 = UIImage(named: FAV_FILLED) as UIImage?
     
     //for fav button
     var favorites : [String:Bool] = [:]
     var buttonIsSelected = false
+    var selectedSegmentIndex : Int = 0
     let searchController = UISearchController(searchResultsController: nil)
     
     
@@ -141,9 +145,36 @@ class MainVC: UIViewController {
        print("yay")
         let indexPathTapped = tableView.indexPath(for: cell)
         print(indexPathTapped!)
-
-        starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
-        starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
+        
+//        switch selectedSegmentIndex {
+//        case 1:
+//            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
+//        case 2:
+//            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
+//        default:
+//            starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
+//        }
+        if selectedSegmentIndex != 0 {
+            var index = 0
+        for n in starUIs {
+            index += 1
+            if n.name == starUISegment[indexPathTapped!.row].name {
+            print(n.name)
+              self.index = index-1
+//                return
+            }
+            }
+            print(self.index)
+            starUIs[self.index].favorited = !starUIs[self.index].favorited
+//            print(starUIs[index])
+            print("gecc")
+            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
+        } else {
+            starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
+            starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
+        }
+//        starUIs[indexPathTapped!.row].favorited = !starUIs[indexPathTapped!.row].favorited
+//        starUISegment[indexPathTapped!.row].favorited = !starUISegment[indexPathTapped!.row].favorited
 
         print(starUIs)
         tableView.reloadData()
@@ -182,7 +213,8 @@ class MainVC: UIViewController {
     
        //MARK: - Actions
     @IBAction func segmentDidChange(_ sender: UISegmentedControl) {
-        let selectedSegmentIndex = sender.selectedSegmentIndex
+        //let selectedSegmentIndex = sender.selectedSegmentIndex
+        selectedSegmentIndex = sender.selectedSegmentIndex
         switch selectedSegmentIndex {
         case 1:
             starUISegment = starUIs.sorted(by: {$0.birthYear<$1.birthYear})
