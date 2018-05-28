@@ -2,19 +2,17 @@
 > This App is made for Lucasfilm to offer a solution to display neatly the information about some of the most remarkable characters of the Star Wars saga.
 
 [![Swift Version][swift-image]][swift-url]
-[![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
 [![CocoaPods Compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg)](https://img.shields.io/cocoapods/v/LFAlertController.svg)  
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
-
-One to two paragraph statement about your product and what it does.
 
 ![](header.png)
 
 ## Features
 
 - [x] Fetching data from swapi:
+The API call is handled by
 
 - [x] Displaying displaying Characters in tableview
 - [x] Segmented control to sort list by name or birth year or filter
@@ -50,6 +48,12 @@ The third segmented control of the returns a filtered list of the favorite chara
 
 Bela Mate Barandi – mate_barandi@icloud.com
 
+![sortedByName](https://user-images.githubusercontent.com/35433040/40612235-f85e01b4-6279-11e8-97cd-ad041b54f5f7.PNG)
+![sortedByBirth](https://user-images.githubusercontent.com/35433040/40612229-f7e4682c-6279-11e8-83fe-5a61d89d5c97.PNG)
+![searchScreen](https://user-images.githubusercontent.com/35433040/40612231-f800587a-6279-11e8-9861-a5c0dff2cae8.PNG)
+![detailView](https://user-images.githubusercontent.com/35433040/40612232-f8174c9c-6279-11e8-87b3-9d165ad893ca.PNG)
+![favoriteButton](https://user-images.githubusercontent.com/35433040/40612233-f830f124-6279-11e8-8325-2260f560b3b7.PNG)
+![favoriteList](https://user-images.githubusercontent.com/35433040/40612234-f8469e16-6279-11e8-9dc0-e1d3c58c7d92.PNG)
 
 
 [https://github.com/yourname/github-link](https://github.com/dbader/)
